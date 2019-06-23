@@ -1,0 +1,26 @@
+html, body {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+#animal-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+#animal-name {
+    --an-size: 4rem;
+    color: white;
+    font-size: var(--an-size);
+    position: fixed;
+    text-align: center;
+    text-shadow: 0 0 10px black, 0 0 40px black;
+    left: 0;
+    right: 0;
+    bottom: calc(50vh - var(--an-size));
+}

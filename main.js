@@ -22,9 +22,23 @@ const getData = async () => {
     return await response.json();
 };
 
+const animalAnimation = [
+    { transform: 'scale(1)' },
+    { transform: 'scale(1.2)'}
+];
+
 const displayAnimal = async animal => {
-    animalImage.src = `data/images/${animal.image.split('/').pop()}`;
-    animalName.innerText = animal.name;
+    return new Promise((resolve) => {
+        const preload = new Image();
+        preload.src = animal.image;
+
+        preload.addEventListener('load', e => {
+            animalName.innerText = animal.name;
+            animalImage.src = animal.image;
+            animalImage.animate(animalAnimation, { duration: 5000, iterations: 1 });
+            resolve();
+        });
+    });
 }
 
 const init = async () => {
